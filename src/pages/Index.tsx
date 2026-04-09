@@ -30,6 +30,14 @@ const approach = [
   "From reviewing your current cover to recommending practical adjustments, our focus is on giving you clarity, confidence, and solutions that make sense for your everyday life.",
 ];
 
+
+const clienttestimonials = [
+  { icon: Stethoscope, title: "Henry Kasner", description: "Donovan Brand is die ou wat jy wil sien. Not only a broker but a financial planner as well. 076 990 9908. Excellent service. I was in a accident recently and he helped me sort out all the paperwork and took all the hassle. From the medical to the disability claims etc.", link: "/services" },
+  { icon: Heart, title: "Gerhard Gibbs", description: "As you know I like to smash bad service, but here's the opposite. Broke into my bakkie and stole radio and speakers. I recently joined Discovery Insure, via DB Financial Planning - and in under 24 hrs my claim was approved, bakkie booked in to be fixed, and all without having to fill in or type one letter on any piece of paper, with zero added payments. Well done both - amaizing service! BTW: my monthly installments when I joined dropped significantly after 15 years at previous insurer.", link: "/services" },
+  { icon: TrendingUp, title: "Louis Awerbuck", description: "I can honestly say that DBFin provides the most efficient and fair service I have ever seen in this industry. Amazing care and customer-oriented, always going the extra mile. Thank you guys.— with Donovan Brand and Tammy Brand.", link: "/services" },
+  { icon: Shield, title: "Graham Brown", description: "Knowledgable friendly service. Eager to assist! Will recommend them at any time to everyone.", link: "/services" },
+];
+
 const providers = ["Discovery", "Momentum", "Old Mutual", "Sanlam", "Liberty", "Hollard", "FNB Life", "Bonitas"];
 
 const Index = () => (
@@ -213,6 +221,39 @@ const Index = () => (
             </div>
           </div>
         </FadeInSection>
+      </div>
+    </section>
+
+    {/* Client Testimonials */}
+    <section className="bg-muted/80 py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <FadeInSection>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">Client Testimonials</h2>
+            <p className="mt-3 text-muted-foreground text-lg max-w-2xl mx-auto">
+              Truthfull feedback from some of our clients.
+            </p>
+          </div>
+        </FadeInSection>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {clienttestimonials.map((service, i) => (
+            <FadeInSection key={service.title} delay={i * 100}>
+              <Link
+                to={service.link}
+                className="group flex flex-col rounded-xl border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              >
+                <div className="gradient-primary mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
+                  <service.icon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-card-foreground">{service.title}</h3>
+                <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            </FadeInSection>
+          ))}
+        </div>
       </div>
     </section>
 
