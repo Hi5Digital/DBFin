@@ -9,6 +9,9 @@ import {
 import Layout from "@/components/Layout";
 import FadeInSection from "@/components/FadeInSection";
 import { WHATSAPP_URL } from "@/components/WhatsAppButton";
+import img1 from "@/assets/advisor-meeting_ols.jpg";
+import img2 from "@/assets/pexels-gustavo-fring-4971431.jpg";
+import img3 from "@/assets/pexels-danikprihodko-19510835.jpg";
 
 const riskFaqs = [
   {
@@ -85,30 +88,32 @@ interface FaqSectionProps {
 }
 
 const FaqSection = ({ icon: Icon, label, title, faqs, accordionId, delay = 0 }: FaqSectionProps) => (
-  <FadeInSection delay={delay}>
-    <div className="rounded-2xl border bg-card shadow-sm p-6 md:p-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="gradient-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
-          <Icon className="h-5 w-5 text-white" />
+  <FadeInSection delay={delay}>          
+    <div className="space-y-6">
+      <div className="rounded-2xl border bg-card shadow-sm p-6 md:p-8">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="gradient-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
+            <Icon className="h-5 w-5 text-white" />
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary">{label}</p>
+            <h2 className="text-xl font-bold text-foreground">{title}</h2>
+          </div>
         </div>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">{label}</p>
-          <h2 className="text-xl font-bold text-foreground">{title}</h2>
-        </div>
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((faq, i) => (
+            <AccordionItem key={i} value={`${accordionId}-${i}`}>
+              <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline">
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
-      <Accordion type="single" collapsible className="w-full">
-        {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`${accordionId}-${i}`}>
-            <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline">
-              {faq.q}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground leading-relaxed">
-              {faq.a}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
+    </div>      
   </FadeInSection>
 );
 
@@ -129,31 +134,80 @@ const FAQs = () => (
     {/* FAQ Sections */}
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl space-y-8">
-          <FaqSection
-            icon={ShieldCheck}
-            label="Risk Cover"
-            title="Protecting Your Income & Family"
-            faqs={riskFaqs}
-            accordionId="risk"
-            delay={0}
-          />
-          <FaqSection
+        <div className="space-y-16">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <FaqSection
+              icon={ShieldCheck}
+              label="Risk Cover"
+              title="Protecting Your Income & Family"
+              faqs={riskFaqs}
+              accordionId="risk"
+              delay={0}
+            />
+            <div className="relative p-12">
+              {/* Top-right decoration */}
+              <div className="absolute right-6 top-6 h-24 w-24 rounded-3xl bg-primary/20" />
+              {/* Bottom-left decoration */}
+              <div className="absolute bottom-6 left-6 h-24 w-24 rounded-3xl bg-primary/20" />
+              <img
+                src={img2}
+                alt="Financial advisor meeting with clients"
+                className="relative w-full rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)] object-cover"
+                loading="lazy"
+                width={400}
+                height={400}
+              />
+            </div>
+          </div>          
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="relative p-12">
+              {/* Top-right decoration */}
+              <div className="absolute left-6 top-6 h-24 w-24 rounded-3xl bg-primary/20" />
+              {/* Bottom-left decoration */}
+              <div className="absolute bottom-6 right-6 h-24 w-24 rounded-3xl bg-primary/20" />
+              <img
+                src={img1}
+                alt="Financial advisor meeting with clients"
+                className="relative w-full rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)] object-cover"
+                loading="lazy"
+                width={400}
+                height={400}
+              />
+            </div>
+            <FaqSection
             icon={Home}
             label="Short-Term Insurance"
             title="Protecting Your Home & Possessions"
             faqs={shortTermFaqs}
             accordionId="short"
             delay={100}
-          />
-          <FaqSection
-            icon={HelpCircle}
-            label="General Questions"
-            title="Making Sense of Your Policies"
-            faqs={generalFaqs}
-            accordionId="general"
-            delay={200}
-          />
+            />
+          </div>
+          
+          <div className="grid items-center gap-10 md:grid-cols-2">            
+            <FaqSection
+              icon={HelpCircle}
+              label="General Questions"
+              title="Making Sense of Your Policies"
+              faqs={generalFaqs}
+              accordionId="general"
+              delay={200}
+            />
+            <div className="relative p-12">
+              {/* Top-right decoration */}
+              <div className="absolute right-6 top-6 h-24 w-24 rounded-3xl bg-primary/20" />
+              {/* Bottom-left decoration */}
+              <div className="absolute bottom-6 left-6 h-24 w-24 rounded-3xl bg-primary/20" />
+              <img
+                src={img3}
+                alt="Financial advisor meeting with clients"
+                className="relative w-full rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)] object-cover"
+                loading="lazy"
+                width={400}
+                height={400}
+              />
+            </div>
+          </div>   
         </div>
       </div>
     </section>
