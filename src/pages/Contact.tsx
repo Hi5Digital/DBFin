@@ -1,4 +1,4 @@
-import { MessageCircle, MapPin, Mail, Phone, Clock } from "lucide-react";
+import { MessageCircle, MapPin, Mail, Phone, Clock, Medal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import FadeInSection from "@/components/FadeInSection";
@@ -7,10 +7,17 @@ import friendlyAdvisor from "@/assets/friendly-advisor.jpg";
 
 const contactDetails = [
   { icon: MapPin, label: "Location", value: "Cape Town, South Africa" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+27 00 000 0000", href: WHATSAPP_URL },
-  { icon: Mail, label: "Email", value: "info@dbfinancial.co.za", href: "mailto:info@dbfinancial.co.za" },
-  { icon: Phone, label: "Phone", value: "+27 00 000 0000", href: "tel:+27000000000" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+27 83 577 1121", href: WHATSAPP_URL },
+  { icon: Mail, label: "Email", value: "admin@dbfin.co.za", href: "mailto:admin@dbfin.co.za" },
+  { icon: Phone, label: "Phone", value: "+27 83 577 1121", href: "tel:+27835771121" },
   { icon: Clock, label: "Office Hours", value: "Mon – Fri: 08:00 – 17:00" },
+];
+
+const DonDetails = [
+  { icon: Medal, label: "Advisor", value: "Donovan Basson" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+27 83 577 1121", href: WHATSAPP_URL },
+  { icon: Mail, label: "Email", value: "donovan@dbfin.co.za", href: "mailto:donovan@dbfin.co.za" },
+  { icon: Phone, label: "Phone", value: "+27 83 577 1121", href: "tel:+27835771121" },
 ];
 
 const Contact = () => (
@@ -30,7 +37,7 @@ const Contact = () => (
     {/* Contact Details */}
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="grid items-start gap-10 md:grid-cols-2">
+        <div className="grid items-start gap-10 md:grid-cols-[65%_30%]">
           <FadeInSection>
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-foreground">Let's Talk About Your Future</h2>
@@ -89,11 +96,33 @@ const Contact = () => (
                 width={800}
                 height={800}
               />
-              <div className="rounded-xl bg-muted/60 p-6 text-center">
-                <p className="text-sm text-muted-foreground">
-                  DB Financial Planning (Pty) Ltd — Licensed Financial Services Provider
-                </p>
-                <p className="mt-1 text-sm font-semibold text-foreground">FSP Number: 45874</p>
+              <div className="rounded-xl bg-muted/60 p-6 space-y-3">
+                {DonDetails.map((item) => (
+                  <div key={item.label} className="flex items-center gap-3">
+                    <div className="gradient-primary flex h-9 w-9 shrink-0 items-center justify-center rounded-lg">
+                      <item.icon className="h-4 w-4 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">{item.label}</p>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target={item.href.startsWith("http") ? "_blank" : undefined}
+                          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="text-sm text-primary hover:text-primary/80 transition-colors"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="text-sm text-muted-foreground">{item.value}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                <div className="pt-2 border-t text-center">
+                  <p className="text-xs text-muted-foreground">DB Financial Planning (Pty) Ltd — Licensed Financial Services Provider</p>
+                  <p className="mt-1 text-xs font-semibold text-foreground">FSP Number: 45874</p>
+                </div>
               </div>
             </div>
           </FadeInSection>
