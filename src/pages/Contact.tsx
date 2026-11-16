@@ -14,7 +14,7 @@ const contactDetails = [
 ];
 
 const DonDetails = [
-  { icon: Medal, label: "Advisor", value: "Donovan Basson" },
+  { icon: Medal, label: "Advisor", value: "Donovan Brand" },
   { icon: MessageCircle, label: "WhatsApp", value: "+27 83 577 1121", href: WHATSAPP_URL },
   { icon: Mail, label: "Email", value: "donovan@dbfin.co.za", href: "mailto:donovan@dbfin.co.za" },
   { icon: Phone, label: "Phone", value: "+27 83 577 1121", href: "tel:+27835771121" },
