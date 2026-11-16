@@ -38,7 +38,7 @@ const clienttestimonials = [
   { icon: Shield, title: "Graham Brown", description: "Knowledgable friendly service. Eager to assist! Will recommend them at any time to everyone.", link: "/services" },
 ];
 
-const providers = ["Discovery", "Momentum", "Old Mutual", "Sanlam", "Liberty", "Hollard", "FNB Life", "Bonitas"];
+const providers = ["Discovery", "Momentum", "Old Mutual", "Sanlam", "Liberty", "Hollard", "Bonitas", "Stratum", "Sirago", "Linksave", "Bestmed", "Medihelp", "Genesis", "Allan Gray", "Fedgroup", "FMI / Bidlife", "Sanlam / Glacier"];
 
 const Index = () => (
   <Layout>
@@ -73,14 +73,14 @@ const Index = () => (
               {/* Top-right decoration */}
               <div className="absolute -left-6 -top-6 h-24 w-24 rounded-3xl bg-primary/20" />
               <img
-              src={heroFamily}
-              alt="Happy South African family protected by DB Financial Planning"
-              className="relative rounded-2xl shadow-2xl"
-              width={1920}
-              height={1080}
-            />
+                src={heroFamily}
+                alt="Happy South African family protected by DB Financial Planning"
+                className="relative rounded-2xl shadow-2xl"
+                width={1920}
+                height={1080}
+              />
             </div>
-            
+
           </div>
         </div>
         {/* Wave divider */}
@@ -181,15 +181,15 @@ const Index = () => (
               {/* Bottom-left decoration */}
               <div className="absolute -bottom-6 -right-6 h-24 w-24 rounded-3xl bg-primary/20" />
               <img
-              src={handshake}
-              alt="Professional partnership and trust"
-              className="relative rounded-2xl shadow-lg"
-              loading="lazy"
-              width={1024}
-              height={1024}
-            />
+                src={handshake}
+                alt="Professional partnership and trust"
+                className="relative rounded-2xl shadow-lg"
+                loading="lazy"
+                width={1024}
+                height={1024}
+              />
             </div>
-            
+
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">
                 Why Clients Choose DB Financial Planning
@@ -204,7 +204,7 @@ const Index = () => (
                   </li>
                 ))}
               </ul>
-              
+
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">
                 Our Approach
               </h2>
