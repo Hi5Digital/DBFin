@@ -5,7 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/clients/dbfin/" : "/",
+  // Site is deployed at the domain root (e.g. www.dbfin.co.za), not under /clients/dbfin/
+  base: "/",
   server: {
     host: "::",
     port: 8080,
